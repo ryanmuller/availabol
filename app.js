@@ -22,7 +22,7 @@ var news = [];
 setInterval(function() {
   for(var i=news.length-1; i>=0; i--) {
     var time = parseInt(news[i]['howlong']);
-    if (time == 1) news.split(i,1);
+    if (time <= 1) news.splice(i,1);
     else news[i]['howlong'] = time - 1;
   }
   }, 60000);
