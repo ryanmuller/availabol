@@ -6,7 +6,11 @@ Bored? Want to play an online game? Or go out? Maybe your friends are thinking t
 Usage
 -----
 
-Install node.js and npm: http://nodejs.org/
+Install node.js and npm: http://nodejs.org/ then get socket.io:
+
+    npm install socket.io
+
+To start the server
 
     node app.js
 
