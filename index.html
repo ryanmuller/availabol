@@ -1,0 +1,64 @@
+<!doctype HTML>
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  function setNews(data) {
+    var who = data["who"];
+    if ($('#'+who).length == 0) 
+      $('#news').append($('<li>').attr('id', who));
+      
+    $('#'+who).html(who + ' is available to ' + data['what'] + ' for the next <span class="time">' + data['howlong'] + '</span> minutes.');
+  }
+  
+  $(document).ready(function() {
+    var socket = io.connect('http://localhost');
+    
+    socket.on('news', function (data) {
+      setNews(data);
+    });
+
+    $('#update').submit(function() {
+      data = {
+        who:     $('#who').val(),
+        what:    $('#what').val(),
+        howlong: $('#howlong').val() };
+      socket.emit('update', data);
+      setNews(data);
+
+      return false;
+    });
+
+
+    // update times
+    setInterval(function() {
+      $('.time').each(function(index) {
+        var time = parseInt($(this).text());
+        if (time == 1) 
+          $(this).parent().remove();
+        else
+          $(this).text(time-1);
+      })
+    }, 60000);
+  });
+</script>
+<title>Availabol</title>
+</head>
+<body>
+<h1>Availabol</h1>
+
+<form id="update" action="#">
+<input type="text" id="who" />
+is available to 
+<input type="text" id="what" />
+for the next
+<input type="text" id="howlong" />
+minutes.
+<input type="submit" value="Go!" />
+</form>
+
+<ul id="news">
+</ul>
+</body>
+</html>
