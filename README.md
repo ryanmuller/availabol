@@ -28,3 +28,4 @@ Plans
 * Some kind of protection for your name
 * Happoning-style "critical mass" feature that will alert you when there's many others with the same availability
 * Better look
+* Easier way to communicate with the server (XMPP, mobile app, etc.)
