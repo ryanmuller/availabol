@@ -1,7 +1,9 @@
 Purpose
 -------
 
-Bored? Want to play an online game? Or go out? Maybe your friends are thinking the same thing! Check out who's available for what on Availabol. Inspired by Availabol's more mature cousin [Happoning](http://happoning.com) for planning events with specific times.
+Bored? Want to play an online game? Or go out? Maybe your friends are thinking the same thing! Check out who's available for what on Availabol. 
+
+Need to plan something with a predetermined time? Try [Happoning](http://happoning.com).
 
 Demo
 ----
