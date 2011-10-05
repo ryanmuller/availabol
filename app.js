@@ -7,7 +7,7 @@ io.configure(function() {
   io.set("polling duration", 10);
 });
 
-app.listen(8000);
+app.listen(process.env.PORT || 3000);
 
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
